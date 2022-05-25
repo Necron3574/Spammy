@@ -1,0 +1,92 @@
+{% extends 'layout.html' %}
+
+{% block specif_style  %}
+  <link rel="stylesheet" href="/static/css/Blog_styles.css" />
+  <script src="https://kit.fontawesome.com/72a88f0ef8.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Candal" />
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Lora" />
+
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/static/css/style.css">
+  <link rel="stylesheet" href="/static/css/nice-select.css">
+  <link rel="stylesheet" href="/static/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/static/css/icofont.css">
+  <link rel="stylesheet" href="/static/css/slicknav.min.css">
+  <link rel="stylesheet" href="/static/css/owl-carousel.css">
+  <link rel="stylesheet" href="/static/css/datepicker.css">
+  <link rel="stylesheet" href="/static/css/animate.min.css">
+  <link rel="stylesheet" href="/static/css/magnific-popup.css">
+  <link rel="stylesheet" href="/static/css/normalize.css">
+  <link rel="stylesheet" href="/static/css/responsive.css">
+  <link rel="stylesheet" href="/static/css/admin.css" />
+{% endblock specif_style  %}
+
+
+{% block content %}
+
+<title>Edit-mail</title>
+<!-- header-area -->
+    <header class="header" >
+      
+      <!-- Header Inner -->
+      <!--/ End Header Inner -->
+    </header>
+    <!-- End Header Area -->
+    
+
+<!-- Admin-Page-Wrapper -->
+<div class = "aligner">
+<div class = "admin-wrapper">
+	<!-- Admin-Content -->
+	<div class = "admin-content">
+		<div class="content">
+			<h2 class = "page-title">Edit Mail</h2>
+			<form action="" method="POST">
+        <div class = "edit-title">
+          <label>Email/Emails</label>
+          <input type = "text" class = text-input name = "etlist" value = "{{ mail.tlist }}"/>
+        </div>
+				<div class = "edit-title">
+					<label>Subject</label>
+					<input type = "text" class = text-input name = "esub" value = "{{ mail.sub }}"/>
+				</div>
+				<div class = "edit-body">
+					<label>Body</label>
+					<textarea name="ebody" id="body">{{ mail.body }}</textarea>
+				</div>
+				<div class = "edit-title">
+          <label>number of emails</label>
+          <input type = "text" class = text-input name = "enums" value = "{{ mail.nums }}"/>
+        </div>
+				<div>
+					<button type = "submit" class= "btn-algn btn btn-big">Spam</button>
+				</div>
+				        {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for cat, message in messages %}
+                        {% if cat == "IBD" %}
+                        <div class="error-msg">
+                            <p style = "color: #B33A3A; font-weight: bold;">{{message}}</p>
+                        </div>
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
+              {% endwith %}
+			</form>
+		</div>
+	</div>
+	<!-- // Admin-Content -->
+</div>
+</div>
+<!-- // Admin-Page-Wrapper -->
+
+
+<!-- JQUERY --> 
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+
+<!-- C-K Editor -->
+<script src="https://cdn.ckeditor.com/ckeditor5/24.0.0/classic/ckeditor.js"></script>
+<!-- Custom Scripts --> 
+<script type="text/javascript" src="/static/js/scripts_Blog.js"></script>
+{% endblock content %}

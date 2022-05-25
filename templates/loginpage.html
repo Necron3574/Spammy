@@ -1,0 +1,66 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href= "/static/css/login.css">
+
+    <link rel="stylesheet" href="/static/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="/static/css/responsive.css">
+
+</head>
+
+<body>
+<div class="container" id="container">
+        <div class="form-container sign-up-container">
+            <form action="/random" method = "POST">
+                <h1>Use a random account</h1>
+                <br>
+                <span>Use a random account to send spam emails</span>
+                <br>
+                <button>Use Random Acc</button>
+            </form>
+        </div>
+        <div class="form-container sign-in-container">
+            <form action="" method="POST">
+                <h1>Sign in</h1>
+                <br>
+                <span>Use your account</span>
+                <input type="email" placeholder="Email" name = "signInEmail" />
+                <input type="password" placeholder="Password" name = "signInPassword" />
+                <br>
+                <button>Sign In</button>
+                 {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for cat, message in messages %}
+                        {% if cat == "SIE" %}
+                        <div class="error-msg">
+                            <p style = "color: #B33A3A; font-weight: bold;">{{message}}</p>
+                        </div>
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
+              {% endwith %}
+            </form>
+        </div>
+        <div class="overlay-container">
+            <div class="overlay">
+                <div class="overlay-panel overlay-left">
+                    <h1>Welcome Back!</h1>
+                    <p>To keep connected with us please login with your personal info</p>
+                    <button class="ghost" id="signIn">Sign In</button>
+                </div>
+                <div class="overlay-panel overlay-right">
+                    <h1>Hello, Friend!</h1>
+                    <p>Enter your personal details and start journey with us</p>
+                    <button class="ghost" id="signUp">Random Account</button>
+                </div>
+            </div>
+        </div>
+    </div>
+	</div>
+	</div>
+</body>
+    <script type="text/javascript" src="/static/js/login.js" ></script>
+    <!-- Main JS -->
+    <script type="text/javascript" src="/static/js/main.js" ></script>
+</html>

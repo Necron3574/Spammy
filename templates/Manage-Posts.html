@@ -1,0 +1,91 @@
+{% extends 'layout.html' %}
+
+{% block specif_style  %}
+	<link rel="stylesheet" href="/static/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/static/css/nice-select.css">
+  <link rel="stylesheet" href="/static/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/static/css/icofont.css">
+  <link rel="stylesheet" href="/static/css/slicknav.min.css">
+  <link rel="stylesheet" href="/static/css/owl-carousel.css">
+  <link rel="stylesheet" href="/static/css/datepicker.css">
+  <link rel="stylesheet" href="/static/css/animate.min.css">
+  <link rel="stylesheet" href="/static/css/magnific-popup.css">
+  <link rel="stylesheet" href="/static/css/normalize.css">
+  <link rel="stylesheet" href="/static/css/responsive.css">
+  <link rel="stylesheet" href="/static/css/style.css">
+  <link rel="stylesheet" href="/static/css/admin.css" />
+  <link rel="stylesheet" href="/static/css/Blog_styles.css" />
+  <script src="https://kit.fontawesome.com/72a88f0ef8.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Candal" />
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Lora" />
+{% endblock specif_style  %}
+
+
+
+<title>Manage-Posts</title>
+
+{% block content %}
+ <!-- header-area -->
+    <header class="header" >
+      
+      <!-- Header Inner -->
+      
+      <!--/ End Header Inner -->
+    </header>
+    <!-- End Header Area -->
+
+<!-- Admin-Page-Wrapper -->
+<div class = "admin-wrapper">
+
+
+
+	<!-- Admin-Content -->
+	<div class = "admin-content container">
+		
+
+		<div class="content">
+    <div class="row">
+    <div class='col-lg-8'>
+    <h2 class = "page-title">Manage Emails</h2>
+    </div>
+    <div class="col-lg-4">	
+		<a href='/home'>	<button href = "/home" class = "btn btn-primary" type="link">Add Email</buttton></a>
+    </div>
+    </div>
+		
+			<table class="table table-bordered">
+				<thead>
+					<th>S.No</th>
+					<th>Subject</th>
+          <th>Action</th>
+          <th>Action</th>
+				</thead>
+				<tbody>
+					{% for mail in mails %}
+					
+						<tr>
+							<td>{{ loop.index }}</td>
+							<td>{{ mail.sub }}</td>
+							<td><a href = "{{ url_for('Edit_post' ,uid=mail.uid) }}" class="edit">Edit</a></td>
+							<td><a href = "{{ url_for('delete_post' ,uid=mail.uid) }}" class = "delete">Delete</a></td>
+						</tr>
+
+					{% endfor %}
+
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<!-- // Admin-Content -->
+</div>
+<!-- // Admin-Page-Wrapper -->
+
+
+<!-- JQUERY --> 
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+
+<!-- Custom Scripts --> 
+<script type="text/javascript" src="/static/js/scripts_Blog.js"></script>
+
+{% endblock content %}
